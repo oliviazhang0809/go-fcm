@@ -157,7 +157,7 @@ func (c *gcmClient) monitorXMPP(activeMonitor bool) {
 			xc = c.xmppClient
 		} else {
 			xc = nil
-			cerr = make(chan error)
+			cerr = make(chan error, 1)
 		}
 
 		// Create XMPP client.
