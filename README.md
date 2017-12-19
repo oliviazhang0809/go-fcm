@@ -47,7 +47,7 @@ Note that [GCM limitations][gcm limitations] are not enforced by the library. In
 
 [tag shield image]: https://img.shields.io/github/tag/kikinteractive/go-gcm.svg?maxAge=2592000
 
-[goreportcard]: https://goreportcard.com/report/kikinteractive/go-gcm
-[goreportcard image]: https://goreportcard.com/badge/kikinteractive/go-gcm
+[goreportcard]: https://goreportcard.com/report/github.com/kikinteractive/go-gcm
+[goreportcard image]: https://goreportcard.com/badge/github.com/kikinteractive/go-gcm
 
 [gcm limitations]: https://gist.github.com/mnemonicflow/d08af1c1ea2f54f8667f
