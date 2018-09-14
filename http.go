@@ -33,11 +33,11 @@ type fcmHTTP struct {
 type multicastResultsState map[string]*HTTPResult
 
 // newHTTPFCMClient creates a new client for handling FCM HTTP requests.
-func newHTTPClient(apiKey string, debug bool) httpC {
+func newHTTPClient(apiKey string, debug bool, timeout time.Duration) httpC {
 	return &fcmHTTP{
 		FCMURL:     httpAddress,
 		apiKey:     apiKey,
-		httpClient: &http.Client{},
+		httpClient: &http.Client{Timeout: timeout},
 		debug:      debug,
 	}
 }

@@ -62,7 +62,7 @@ func NewClient(config *Config, h MessageHandler) (Client, error) {
 	}
 
 	// Create FCM HTTP client.
-	httpc := newHTTPClient(config.APIKey, config.Debug)
+	httpc := newHTTPClient(config.APIKey, config.Debug, config.HTTPTimeout)
 
 	// Construct FCM client.
 	return newFCMClient(xmppc, httpc, config, h)

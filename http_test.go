@@ -47,7 +47,7 @@ var _ = Describe("HTTP Client", func() {
 
 	Context("initializing", func() {
 		It("should init successfully", func() {
-			c := newHTTPClient("key", true)
+			c := newHTTPClient("key", true, time.Duration(2*time.Second))
 			Expect(c).To(BeAssignableToTypeOf(&fcmHTTP{}))
 			gc := c.(*fcmHTTP)
 			Expect(gc.apiKey).To(Equal("key"))

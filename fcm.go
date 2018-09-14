@@ -15,6 +15,8 @@
 // Package fcm provides send and receive FCM functionality.
 package fcm
 
+import "time"
+
 // HTTPMessage defines a downstream FCM HTTP message.
 type HTTPMessage struct {
 	To                    string        `json:"to,omitempty"`
@@ -91,13 +93,14 @@ type Notification struct {
 
 // Config is a container for FCM client configuration data.
 type Config struct {
-	SenderID          string `json:"sender_id"`
-	APIKey            string `json:"api_key"`
-	Sandbox           bool   `json:"sandbox"`
-	MonitorConnection bool   `json:"monitor_connection"`
-	Debug             bool   `json:"debug"`
-	PingInterval      int    `json:"ping_interval"`
-	PingTimeout       int    `json:"ping_timeout"`
+	SenderID          string        `json:"sender_id"`
+	APIKey            string        `json:"api_key"`
+	Sandbox           bool          `json:"sandbox"`
+	MonitorConnection bool          `json:"monitor_connection"`
+	Debug             bool          `json:"debug"`
+	PingInterval      int           `json:"ping_interval"`
+	PingTimeout       int           `json:"ping_timeout"`
+	HTTPTimeout       time.Duration `json:"http_timeout"`
 }
 
 // CCSMessage is an XMPP message sent from CCS.
