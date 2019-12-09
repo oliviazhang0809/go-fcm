@@ -55,6 +55,10 @@ func NewClient(config *Config, h MessageHandler) (Client, error) {
 		return nil, errors.New("empty api key")
 	}
 
+	if !config.XMPPClientEnabled {
+		return newSimpleClient(config, h)
+	}
+
 	// Create GCM XMPP client.
 	xmppc, err := newXMPPClient(config.Sandbox, config.SenderID, config.APIKey, config.Debug)
 	if err != nil {
