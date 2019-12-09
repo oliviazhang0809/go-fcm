@@ -101,6 +101,7 @@ type Config struct {
 	PingInterval      int           `json:"ping_interval"`
 	PingTimeout       int           `json:"ping_timeout"`
 	HTTPTimeout       time.Duration `json:"http_timeout"`
+	XMPPClientEnabled bool          `json:"xmpp_client_enabled"`
 }
 
 // CCSMessage is an XMPP message sent from CCS.

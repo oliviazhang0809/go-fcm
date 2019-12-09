@@ -15,7 +15,7 @@ import (
 var (
 	serverKey = kingpin.Flag("server_key", "The server key to use for FCM.").Short('k').Required().String()
 	senderId  = kingpin.Flag("sender_id", "The sender ID to use for FCM.").Short('s').Required().String()
-	g fcm.Client
+	g         fcm.Client
 )
 
 // onMessage receives messages, logs them, and echoes a response.
