@@ -8,8 +8,8 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// httpC is an interface to stub the internal HTTP client.
-type httpC interface {
+// HttpC is an interface to stub the internal HTTP client.
+type HttpC interface {
 	Send(m HTTPMessage) (*HTTPResponse, error)
 }
 
@@ -33,7 +33,7 @@ type fcmClient struct {
 	debug   bool
 	// Clients.
 	xmppClient xmppC
-	httpClient httpC
+	httpClient HttpC
 	// FCM auth.
 	senderID string
 	apiKey   string
@@ -62,7 +62,7 @@ func NewClient(config *Config, h MessageHandler) (Client, error) {
 	}
 
 	// Create FCM HTTP client.
-	httpc := newHTTPClient(config.APIKey, config.Debug, config.HTTPTimeout)
+	httpc := NewHTTPClient(config.APIKey, config.Debug, config.HTTPTimeout)
 
 	// Construct FCM client.
 	return newFCMClient(xmppc, httpc, config, h)
@@ -105,7 +105,7 @@ func (c *fcmClient) Close() error {
 }
 
 // newFCMClient creates an instance of fcmClient.
-func newFCMClient(xmppc xmppC, httpc httpC, config *Config, h MessageHandler) (*fcmClient, error) {
+func newFCMClient(xmppc xmppC, httpc HttpC, config *Config, h MessageHandler) (*fcmClient, error) {
 	c := &fcmClient{
 		httpClient:   httpc,
 		xmppClient:   xmppc,

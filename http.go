@@ -32,8 +32,8 @@ type fcmHTTP struct {
 // Used to compute results for multicast messages with retries.
 type multicastResultsState map[string]*HTTPResult
 
-// newHTTPFCMClient creates a new client for handling FCM HTTP requests.
-func newHTTPClient(apiKey string, debug bool, timeout time.Duration) httpC {
+// NewHTTPClient creates a new client for handling FCM HTTP requests.
+func NewHTTPClient(apiKey string, debug bool, timeout time.Duration) HttpC {
 	return &fcmHTTP{
 		FCMURL:     httpAddress,
 		apiKey:     apiKey,
