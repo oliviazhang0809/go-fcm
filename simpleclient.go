@@ -9,7 +9,6 @@ import (
 // fcmSimpleClient is a container for http clients.
 type fcmSimpleClient struct {
 	sync.RWMutex
-	mh      MessageHandler
 	cerr    chan error
 	sandbox bool
 	debug   bool
@@ -61,7 +60,6 @@ func newSimpleFCMClient(httpc httpC, config *Config, h MessageHandler) (*fcmSimp
 		cerr:       make(chan error, 1),
 		senderID:   config.SenderID,
 		apiKey:     config.APIKey,
-		mh:         h,
 		debug:      config.Debug,
 	}
 
